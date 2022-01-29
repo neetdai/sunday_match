@@ -1,10 +1,14 @@
 use criterion::{black_box, criterion_group, criterion_main, Criterion};
-use homework::sunday_match;
+use sunday_match::SundayMatcher;
 
 fn bench_sunday_match(haytax: &str, target: &str) {
     let haytax = black_box(haytax);
     let target = black_box(target);
-    sunday_match(haytax, target);
+    
+    let matcher = SundayMatcher::new(haytax, target);
+    for (index, _) in matcher {
+        index;
+    }
 }
 
 fn bench_std_two_way_match(haytax: &str, target: &str) {
